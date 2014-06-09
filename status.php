@@ -34,11 +34,7 @@ if (!$account->uid == 1) {
 }
 
 // Check that the files directory is operating properly.
-if ($test = tempnam(variable_get('file_directory_path', conf_path() .'/files'), 'status_check_')) {
-  // Uncomment to check if files are saved in the correct server directory.
-  //if (!strpos($test, '/mnt/nfs') === 0) {
-  //  $errors[] = 'Files are not being saved in the NFS mount under /mnt/nfs.';
-  //}
+if ($test = tempnam(variable_get('file_directory_path', conf_path() . '/files'), 'status_check_')) {
   if (!unlink($test)) {
     $errors[] = 'Could not delete newly create files in the files directory.';
   }
