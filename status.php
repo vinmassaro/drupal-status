@@ -28,15 +28,6 @@ if (!$account->uid == 1) {
   $errors[] = 'Master database not responding.';
 }
 
-// Check that the slave database is active.
-if (function_exists('db_query_slave')) {
-  $result = db_query_slave('SELECT * FROM {users} WHERE uid = 1');
-  $account = db_fetch_object($result);
-  if (!$account->uid == 1) {
-    $errors[] = 'Slave database not responding.';
-  }
-}
-
 // Check that all memcache instances are running on this server.
 if (isset($conf['cache_inc'])) {
   foreach ($conf['memcache_servers'] as $address => $bin) {
