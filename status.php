@@ -4,7 +4,8 @@
 //
 // Original by [Lullabot](http://www.lullabot.com/articles/varnish-multiple-web-servers-drupal)
 // Adapted for DrupalCONCEPT by Jochen Lillich <jochen@freistil-consulting.de>
-// 
+
+define('DRUPAL_ROOT', getcwd());
 
 // Register our shutdown function so that no other shutdown functions run before this one.
 // This shutdown function calls exit(), immediately short-circuiting any other shutdown functions,
