@@ -52,7 +52,7 @@ if ($errors) {
 else {
   // Split up this message, to prevent the remote chance of monitoring software
   // reading the source code if mod_php fails and then matching the string.
-  print 'CONGRATULATIONS' . ' 200';
+  print '200' . ' OK';
 }
 
 // Exit immediately, note the shutdown function registered at the top of the file.
