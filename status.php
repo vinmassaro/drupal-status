@@ -28,16 +28,6 @@ if (!$account->uid == 1) {
   $errors[] = 'Master database not responding.';
 }
 
-// Check that all memcache instances are running on this server.
-if (isset($conf['cache_inc'])) {
-  foreach ($conf['memcache_servers'] as $address => $bin) {
-    list($ip, $port) = explode(':', $address);
-    if (!memcache_connect($ip, $port)) {
-      $errors[] = 'Memcache bin <em>' . $bin . '</em> at address ' . $address . ' is not available.';
-    }
-  }
-}
-
 // Check that the files directory is operating properly.
 if ($test = tempnam(variable_get('file_directory_path', conf_path() .'/files'), 'status_check_')) {
   // Uncomment to check if files are saved in the correct server directory.
