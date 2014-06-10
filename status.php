@@ -55,5 +55,8 @@ else {
   print '200' . ' OK';
 }
 
+// Make sure this response is never cached.
+drupal_page_is_cacheable(FALSE);
+
 // Exit immediately, note the shutdown function registered at the top of the file.
 exit();
